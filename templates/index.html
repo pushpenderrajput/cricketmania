@@ -1,0 +1,56 @@
+{% include "header.html" %}
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url({{ url_for('static', filename='img/ball-bat.webp')}});">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Cricket Mania</h1>
+          <span class="subheading">"Your Ultimate Cricket Hub: Insights, Analysis, and All Things Cricket!"
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      {% for post in all_posts %}
+      <div class="post-preview">
+        <a href="{{ url_for('show_post', index=post.id) }}">
+          <h2 class="post-title">
+            {{post.title}}
+          </h2>
+          <h3 class="post-subtitle">
+            {{post.subtitle}}
+          </h3>
+        </a>
+        <p class="post-meta">Posted by
+          <a href="https://ps-rajput.netlify.app/" target="_blank">{{post.author.name}}</a>
+          on {{post.date}}
+          {%if current_user.id == 1%}
+          <a href="{{url_for('delete', post_id=post.id) }}">✘</a>
+          {%endif%}
+        </p>
+      </div>
+      <hr>
+      {% endfor %}
+
+
+      <!-- New Post -->
+      {%if current_user.id == 1%}
+      <div class="clearfix">
+        <a class="btn btn-primary float-right" href="{{url_for('add_post')}}">Create New Post</a>
+      </div>
+      {%endif%}
+    </div>
+  </div>
+</div>
+<hr>
+
+{% include "footer.html" %}
