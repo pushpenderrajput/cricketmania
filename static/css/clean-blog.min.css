@@ -528,7 +528,6 @@ footer .copyright {
     z-index: 1;
     overflow: hidden;
     align-items: center;
-    /*if you want to crop the image*/
 }
 .my-container:before {
     align-items: center;

@@ -14,11 +14,9 @@ import smtplib
 from flask_gravatar import Gravatar
 from functools import wraps
 from flask import abort
-# Delete this code:
-# import requests
-# posts = requests.get("https://api.npoint.io/43644ec4f0013682fc0d").json
+
 app = Flask(__name__)
-# Base = declarative_base()
+
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 ckeditor = CKEditor(app)
 Bootstrap(app)
@@ -192,7 +190,7 @@ def edit(post_id):
 
 
 @app.route("/delete/<int:post_id>")
-# @admin_only
+@admin_only
 def delete(post_id):
     post = BlogPost.query.get(post_id)
     db.session.delete(post)
@@ -201,7 +199,6 @@ def delete(post_id):
 
 
 @app.route("/about")
-# @login_required
 def about():
     return render_template("about.html", current_user=current_user)
 
@@ -241,10 +238,6 @@ def form_entry():
         return render_template("contact.html", msg_sent=False, current_user=current_user)
 
 
-# @app.route('/register')
-# def register():
-#     form = RegisterForm()
-#     return render_template('register.html', form=form)
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -301,7 +294,6 @@ def login():
 
 
 @app.route('/logout')
-# @login_required
 def logout():
     logout_user()
     return redirect(url_for('login'))
