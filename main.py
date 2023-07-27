@@ -2,7 +2,6 @@ from flask import Flask, render_template, redirect, url_for, request, flash
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
-# from sqlalchemy.ext.declarative import declarative_base
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, EmailField, PasswordField
 from wtforms.validators import DataRequired, URL
@@ -19,7 +18,7 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 ckeditor = CKEditor(app)
-Bootstrap(app)
+bootstrap = Bootstrap(app)
 gravatar = Gravatar(app, size=100, rating='g', default='retro',
                     force_default=False, force_lower=False, use_ssl=False, base_url=None)
 # CONNECT TO DB

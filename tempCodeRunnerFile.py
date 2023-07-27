@@ -1,1 +1,0 @@
-lask_gravatar
