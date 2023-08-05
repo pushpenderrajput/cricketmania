@@ -9,9 +9,7 @@ body {
   color: #212529;
   font-family: 'Lora', 'Times New Roman', serif;
 }
-.masthead background-image{
-  opacity: -1;
-}
+
 p {
   line-height: 1.5;
   margin: 30px 0;
@@ -36,7 +34,8 @@ a {
   transition: all 0.2s;
 }
 
-a:focus, a:hover {
+a:focus,
+a:hover {
   color: #0085A1;
 }
 
@@ -60,6 +59,11 @@ blockquote {
   text-align: center;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
+}
+
+content p {
+  font-style: italic;
+  color: red;
 }
 
 ::-moz-selection {
@@ -89,6 +93,93 @@ img::-moz-selection {
   background: transparent;
 }
 
+.comment {
+  padding-top: 20px;
+}
+
+.detailBox {
+  width: 320px;
+  border: 1px solid #bbb;
+  margin: 50px;
+}
+
+.titleBox {
+  background-color: #fdfdfd;
+  padding: 10px;
+}
+
+.titleBox label {
+  color: #444;
+  margin: 0;
+  display: inline-block;
+}
+
+.commentBox {
+  padding: 10px;
+  border-top: 1px dotted #bbb;
+}
+
+.commentBox .form-group:first-child,
+.actionBox .form-group:first-child {
+  width: 80%;
+}
+
+.commentBox .form-group:nth-child(2),
+.actionBox .form-group:nth-child(2) {
+  width: 18%;
+}
+
+.actionBox .form-group * {
+  width: 100%;
+}
+
+.taskDescription {
+  margin-top: 10px 0;
+}
+
+.commentList {
+  padding: 0;
+  list-style: none;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.commentList li {
+  margin: 0;
+  margin-top: 10px;
+}
+
+.commentList li>div {
+  display: table-cell;
+}
+
+.commenterImage {
+  width: 30px;
+  margin-right: 5px;
+  height: 100%;
+  float: left;
+}
+
+.commenterImage img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.commentText p {
+  margin: 0;
+}
+
+.sub-text {
+  color: #aaa;
+  font-family: verdana;
+  font-size: 11px;
+}
+
+.actionBox {
+  border-top: 1px dotted #bbb;
+  padding: 10px;
+}
+
 #mainNav {
   position: absolute;
   border-bottom: 1px solid #e9ecef;
@@ -109,7 +200,7 @@ img::-moz-selection {
   color: #343a40;
 }
 
-#mainNav .navbar-nav > li.nav-item > a {
+#mainNav .navbar-nav>li.nav-item>a {
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 1px;
@@ -121,18 +212,24 @@ img::-moz-selection {
     border-bottom: 1px solid transparent;
     background: transparent;
   }
+
   #mainNav .navbar-brand {
     padding: 10px 20px;
     color: #fff;
   }
-  #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
+
+  #mainNav .navbar-brand:focus,
+  #mainNav .navbar-brand:hover {
     color: rgba(255, 255, 255, 0.8);
   }
-  #mainNav .navbar-nav > li.nav-item > a {
+
+  #mainNav .navbar-nav>li.nav-item>a {
     padding: 10px 20px;
     color: #fff;
   }
-  #mainNav .navbar-nav > li.nav-item > a:focus, #mainNav .navbar-nav > li.nav-item > a:hover {
+
+  #mainNav .navbar-nav>li.nav-item>a:focus,
+  #mainNav .navbar-nav>li.nav-item>a:hover {
     color: rgba(255, 255, 255, 0.8);
   }
 }
@@ -144,6 +241,7 @@ img::-moz-selection {
     transform: translate3d(0, 0, 0);
     -webkit-backface-visibility: hidden;
   }
+
   #mainNav.is-fixed {
     /* when the user scrolls down, we hide the header right above the viewport */
     position: fixed;
@@ -152,18 +250,25 @@ img::-moz-selection {
     border-bottom: 1px solid white;
     background-color: rgba(255, 255, 255, 0.9);
   }
+
   #mainNav.is-fixed .navbar-brand {
     color: #212529;
   }
-  #mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
+
+  #mainNav.is-fixed .navbar-brand:focus,
+  #mainNav.is-fixed .navbar-brand:hover {
     color: #0085A1;
   }
-  #mainNav.is-fixed .navbar-nav > li.nav-item > a {
+
+  #mainNav.is-fixed .navbar-nav>li.nav-item>a {
     color: #212529;
   }
-  #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus, #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
+
+  #mainNav.is-fixed .navbar-nav>li.nav-item>a:focus,
+  #mainNav.is-fixed .navbar-nav>li.nav-item>a:hover {
     color: #0085A1;
   }
+
   #mainNav.is-visible {
     /* if the user changes the scrolling direction, we show the header */
     transform: translate3d(0, 100%, 0);
@@ -197,6 +302,7 @@ header.masthead .site-heading {
 }
 
 @media only screen and (min-width: 768px) {
+
   header.masthead .page-heading,
   header.masthead .post-heading,
   header.masthead .site-heading {
@@ -226,6 +332,7 @@ header.masthead .site-heading .subheading {
 }
 
 @media only screen and (min-width: 768px) {
+
   header.masthead .page-heading h1,
   header.masthead .site-heading h1 {
     font-size: 80px;
@@ -264,57 +371,62 @@ header.masthead .post-heading .meta a {
   header.masthead .post-heading h1 {
     font-size: 55px;
   }
+
   header.masthead .post-heading .subheading {
     font-size: 30px;
   }
 }
 
-.post-preview > a {
+.post-preview>a {
   color: #212529;
 }
 
-.post-preview > a:focus, .post-preview > a:hover {
+.post-preview>a:focus,
+.post-preview>a:hover {
   text-decoration: none;
   color: #0085A1;
 }
 
-.post-preview > a > .post-title {
+.post-preview>a>.post-title {
   font-size: 30px;
   margin-top: 30px;
   margin-bottom: 10px;
 }
 
-.post-preview > a > .post-subtitle {
+.post-preview>a>.post-subtitle {
   font-weight: 300;
   margin: 0 0 10px;
 }
 
-.post-preview > .post-meta {
+.post-preview>.post-meta {
   font-size: 18px;
   font-style: italic;
   margin-top: 0;
   color: #868e96;
 }
 
-.post-preview > .post-meta > a {
+.post-preview>.post-meta>a {
   text-decoration: none;
   color: #212529;
 }
 
-.post-preview > .post-meta > a:focus, .post-preview > .post-meta > a:hover {
+.post-preview>.post-meta>a:focus,
+.post-preview>.post-meta>a:hover {
   text-decoration: underline;
   color: #0085A1;
 }
 
 @media only screen and (min-width: 768px) {
-  .post-preview > a > .post-title {
+  .post-preview>a>.post-title {
     font-size: 36px;
   }
 }
+
 .form-control {
-    font-size: 1.2rem;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 1.2rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 .floating-label-form-group {
   font-size: 14px;
   position: relative;
@@ -402,7 +514,9 @@ footer .copyright {
   border-color: #0085A1;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
   color: #fff;
   background-color: #00657b !important;
   border-color: #00657b !important;

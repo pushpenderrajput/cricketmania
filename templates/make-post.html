@@ -1,8 +1,4 @@
-{% extends 'bootstrap/base.html' %}
-
-# Add import for bootstrap wtf quickform support
-{% import "bootstrap/wtf.html" as wtf %}
-
+{% from "bootstrap5/form.html" import render_form %}
 {% block content %}
 {% include "header.html" %}
 <!-- Page Header -->

@@ -2,14 +2,17 @@
 <html lang="en">
 
 <head>
+  <title>Cricket by Rajput</title>
+  {%block styles%}
+  {{bootstrap.load_css()}}
+  <link rel="shortcut icon" href="../static/img/pngwing.com.png" type="image/x-icon">
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Cricket by Rajput</title>
-  <link rel="shortcut icon" href="../static/img/pngwing.com.png" type="image/x-icon">
+
 
   <!-- Bootstrap core CSS -->
   <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -29,13 +32,13 @@
 </head>
 
 <body>
-
+  {%endblock%}
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
 
       <a class="navbar-brand" href="{{url_for('get_all_posts')}}"><img src="../static/img/pngwing.com.png" height="40px"
-          alt=""> CricketMaina</a>
+          style="padding: 0px 0px 0px 20px" alt="">CricketMaina</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
         data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
         aria-label="Toggle navigation">

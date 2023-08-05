@@ -1,10 +1,9 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
-from flask_bootstrap import Bootstrap
+from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
 from flask_wtf import FlaskForm
-from wtforms.fields import StringField, SubmitField, PasswordField
-from wtforms.fields.html5 import EmailField
+from wtforms.fields import StringField, SubmitField, PasswordField, EmailField
 from wtforms.validators import DataRequired, URL
 from flask_ckeditor import CKEditor, CKEditorField
 from datetime import date, datetime
@@ -19,7 +18,7 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 ckeditor = CKEditor(app)
-bootstrap = Bootstrap(app)
+bootstrap = Bootstrap5(app)
 gravatar = Gravatar(app, size=100, rating='g', default='retro',
                     force_default=False, force_lower=False, use_ssl=False, base_url=None)
 # CONNECT TO DB
