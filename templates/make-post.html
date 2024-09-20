@@ -1,0 +1,81 @@
+{% block content %}
+{% include "header.html" %}
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{ url_for('static', filename='img/edit-bg.jpg') }}')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="page-heading">
+          {% if is_edit %}
+          <h1>Edit Post</h1>
+          {% else %}
+          <h1>New Post</h1>
+          {% endif %}
+          <span class="subheading">You're going to make a great blog post!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+
+      {{ ckeditor.load() }}
+      {{ ckeditor.config(name='body') }}
+
+      <form method="POST" novalidate>
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+          {{ form.title.label(class="form-label") }}
+          {{ form.title(class="form-control") }}
+          {% if form.title.errors %}
+            <div class="text-danger">{{ form.title.errors[0] }}</div>
+          {% endif %}
+        </div>
+
+        <div class="form-group">
+          {{ form.subtitle.label(class="form-label") }}
+          {{ form.subtitle(class="form-control") }}
+          {% if form.subtitle.errors %}
+            <div class="text-danger">{{ form.subtitle.errors[0] }}</div>
+          {% endif %}
+        </div>
+
+        <div class="form-group">
+          {{ form.author.label(class="form-label") }}
+          {{ form.author(class="form-control") }}
+          {% if form.author.errors %}
+            <div class="text-danger">{{ form.author.errors[0] }}</div>
+          {% endif %}
+        </div>
+
+        <div class="form-group">
+          {{ form.img_url.label(class="form-label") }}
+          {{ form.img_url(class="form-control") }}
+          {% if form.img_url.errors %}
+            <div class="text-danger">{{ form.img_url.errors[0] }}</div>
+          {% endif %}
+        </div>
+
+        <div class="form-group">
+          {{ form.body.label(class="form-label") }}
+          {{ form.body(class="form-control", rows=5) }}
+          {% if form.body.errors %}
+            <div class="text-danger">{{ form.body.errors[0] }}</div>
+          {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          {% if is_edit %} Update Post {% else %} Create Post {% endif %}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% include "footer.html" %}
+{% endblock %}
